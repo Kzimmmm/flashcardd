@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard</title>
+</head>
+<body>
+    <main>
+        <section id="container">
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Programação</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        O que é JavaScript?
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        O JavaScript é uma linguagem de programação
+                    </div>
+                </div>
+            </article>
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Programação</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        O que é CSS?
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        O CSS é uma linguagem de estilização
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Projeto desenvolvido pela Alura, sem fins lucrativos</p>
+    </footer>
+</body>
+</html> {
+    background-color: bisque;
+    font-family: Bai Jamjuree;
+}
+footer {
+    background-color: black;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 2rem;
+}
+footer p {
+    text-align: center;
+    font-size: 0.6rem;
+    margin-top: 0.5rem;
+}
+‎index.html
++1
+Original file line number	Diff line number	Diff line change
+@@ -3,6 +3,7 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Flashcard</title>
+</head>
+<body>  font-family: Bai Jamjuree;
+}
+
+#container {
+    display: flex; /* Elementos dispostos em linha */
+}
+.cartao {
+    margin: 1rem 1rem;
+    background-color: aqua;
+    height: 20rem;
+    flex-grow: 1;
+    flex-basis: calc(33% - 6rem);
+}
+.cartao__conteudo {
+    text-align: center;
+    /* background-color: aquamarine; */
+    height: 100%;
+}
+.cartao__conteudo h3 {
+    background-color: tomato;
+    text-align: left;
+    padding: 0.5rem;
+    position: absolute;
+    margin: 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 1vw;
+}
+.cartao__conteudo p {
+    margin-top: 1rem;
+    padding: 2rem;
+}
+footer {
+    background-color: black;
+    color: white;
+‎index.html
++15
+-4
+Original file line number	Diff line number	Diff line change
+@@ -13,21 +13,32 @@
+                <div class="cartao__conteudo">
+                    <h3>Programação</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        O que é JavaScript?
+                        <p>O que é JavaScript?</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        O JavaScript é uma linguagem de programação
+                        <p>O JavaScript é uma linguagem de programação</p>
+                    </div>
+                </div>
+            </article>
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Programação</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        O que é CSS?
+                        <p>O que é CSS?</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        O CSS é uma linguagem de estilização
+                    <p>O CSS é uma linguagem de estilização</p>
+                    </div>
+                </div>
+            </article>
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Programação</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        <p>O que é CSS?</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                    <p>O CSS é uma linguagem de estilização</p>
+                    </div>
+                </div>
+            </article>:root {
+    --text-color: #DBE4EF;
+    --card-front-color: #144480;
+    --card-back-color: #00F4BF;
+}
+body {
+    background-color: bisque;
+    background: url('img/bg-desktop.webp');
+    font-family: Bai Jamjuree;
+}
+
+#container {
+    display: flex; /* Elementos dispostos em linha */
+    display: flex; 
+}
+
+.cartao {
+    margin: 1rem 1rem;
+    background-color: aqua;
+    height: 20rem;
+    flex-grow: 1;
+    flex-basis: calc(33% - 6rem);
+}
+
+.cartao__conteudo {
+    background-color: var(--card-front-color);
+    text-align: center;
+    /* background-color: aquamarine; */
+    height: 100%;
+}
+
+.cartao__conteudo h3 {
+    background-color: tomato;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    text-align: left;
+    padding: 0.5rem;
+    position: absolute;
+@@ -36,11 +43,15 @@ body {
+    padding: 2rem;
+}
+
+.cartao__conteudo__pergunta p {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.cartao__conteudo__resposta p {
+    color: var(--card-back-color);
+    font-weight: 700;
+}
+
+footer {
+    background-color: black;   text-align: center;
+    /* background-color: aquamarine; */
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 300ms ease-in-out;
+}
+
+.cartao__conteudo h3 {
+@@ -36,11 +38,13 @@ body {
+    margin: 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 1vw;
+    backface-visibility: hidden;
+}
+
+.cartao__conteudo p {
+    margin-top: 1rem;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+.cartao__conteudo__pergunta p {
+@@ -53,6 +57,33 @@ body {
+    font-weight: 700;
+}
+
+.cartao:hover .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.cartao__conteudo__resposta {
+    transform: rotateY(180deg);
+}
+footer {
+    background-color: black;
+    color: white;   text-align: center;
+    /* background-color: aquamarine; */
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 300ms ease-in-out;
+}
+
+.cartao__conteudo h3 {
+@@ -36,11 +38,13 @@ body {
+    margin: 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 1vw;
+    backface-visibility: hidden;
+}
+
+.cartao__conteudo p {
+    margin-top: 1rem;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+.cartao__conteudo__pergunta p {
+@@ -53,6 +57,33 @@ body {
+    font-weight: 700;
+}
+
+.cartao:hover .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.cartao__conteudo__resposta {
+    transform: rotateY(180deg);
+}
+footer {
+    background-color: black;
+    color: white;#container {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 4rem;
+    gap: 3rem;
+}
+
+.cartao {
+‎index.html
+-22
+Original file line number	Diff line number	Diff line change
+@@ -20,28 +20,6 @@ <h3>Programação</h3>
+                    </div>
+                </div>
+            </article>
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Programação</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        <p>O que é CSS?</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                    <p>O CSS é uma linguagem de estilização</p>
+                    </div>
+                </div>
+            </article>
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Programação</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        <p>O que é CSS?</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                    <p>O CSS é uma linguagem de estilização</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+‎perguntas.js
++17
+Original file line number	Diff line number	Diff line change
+@@ -0,0 +1,17 @@
+criaCartao(
+    'Programação',
+    'O que é Python?',
+    'O Python é uma linguagem de programação'
+)
+criaCartao(
+    'Geografia',
+    'Qual a capital da França?',
+    'A capital da França é Paris'
+)
+criaCartao(
+    'Programação',
+    'O que é uma função?',
+    'Uma função é um bloco de código que executa alguma tarefa'
+)
+function criaCartao(categoria, pergunta, resposta) {
+    console.log(categoria, pergunta, resposta)
+}
+‎index.html
++2
+Original file line number	Diff line number	Diff line change
+@@ -25,5 +25,7 @@ <h3>Programação</h3>
+    <footer>
+        <p>Projeto desenvolvido pela Alura, sem fins lucrativos</p>
+    </footer>
+    <script src="app.js"></script>
+    <script src="perguntas.js"></script>
+</body>
+</html>function criaCartao(categoria, pergunta, resposta) {
+    console.log(categoria, pergunta, resposta)
+    let container = document.getElementById('container')
+    let cartao = document.createElement('article')
+    cartao.className = 'cartao'
+    cartao.innerHTML = `
+    <div class="cartao__conteudo">
+    <h3>${categoria}</h3>
+    <div class="cartao__conteudo__pergunta">
+        <p>${pergunta}</p>
+    </div>
+    <div class="cartao__conteudo__resposta">
+        <p>${resposta}</p>
+    </div>
+    </div>
+    `
+    container.appendChild(cartao)
+}
+‎index.html
++2
+-2
+Original file line number	Diff line number	Diff line change
+@@ -9,7 +9,7 @@
+<body>
+    <main>
+        <section id="container">
+            <article class="cartao">
+            <!-- <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Programação</h3>
+                    <div class="cartao__conteudo__pergunta">
+@@ -19,7 +19,7 @@ <h3>Programação</h3>
+                        <p>O JavaScript é uma linguagem de programação</p>
+                    </div>
+                </div>
+            </article>
+            </article> -->
+        </section>
+    </main>
+    <footer>
+‎perguntas.js
++6
+Original file line number	Diff line number	Diff line change
+@@ -14,4 +14,10 @@ criaCartao(
+    'Programação',
+    'O que é uma função?',
+    'Uma função é um bloco de código que executa alguma tarefa'
+)
+criaCartao(
+    'Lingua inglesa',
+    'Como se diz oi em Inglês?',
+    'Oi em ingles é HI (RAI)'
+)
+ </div>
+    </div>
+    `
+    let respostaEstaVisivel = false
+    function viraCartao() {
+        respostaEstaVisivel = !respostaEstaVisivel
+        cartao.classList.toggle('active', respostaEstaVisivel)
+    }
+    cartao.addEventListener('click', viraCartao)
+    container.appendChild(cartao)
+
+}
+‎assets/style.css
++1
+
+-1
+Original file line number	Diff line number	Diff line change
+@@ -61,7 +61,7 @@ body {
+    font-weight: 700;
+}
+
+.cartao:hover .cartao__conteudo {
+.cartao.active .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+@media (max-width: 560px) {
+
+    body {
+        background: url('img/bg-mobile.webp');
+        background: url('img/bg-mobile.webp'), no-repeat cover;
+    }
+
+    .cartao {
+
